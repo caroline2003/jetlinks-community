@@ -13,6 +13,7 @@
     <artifactId>jetlinks-standalone</artifactId>
     <properties>
         <docker.image.name>registry.cn-shenzhen.aliyuncs.com/jetlinks/${project.artifactId}</docker.image.name>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
     </properties>
 
     <build>
@@ -35,6 +36,9 @@
                 <configuration>
                     <mainClass>${project.groupId}.standalone.JetLinksApplication</mainClass>
                     <layout>ZIP</layout>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
                 </configuration>
                 <executions>
                     <execution>
@@ -182,7 +186,7 @@
 <!--        </dependency>-->
 
         <dependency>
-            <groupId>org.springframework.boot.experimental</groupId>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-r2dbc</artifactId>
         </dependency>
 
